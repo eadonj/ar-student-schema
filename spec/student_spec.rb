@@ -1,6 +1,7 @@
 require 'rspec'
 require 'date'
 require_relative '../app/models/student'
+require_relative '../app/models/teacher'
 
 
 describe Student, "#name and #age" do

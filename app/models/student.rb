@@ -5,9 +5,9 @@ class Student < ActiveRecord::Base
   validates_format_of :email, :with => /.+@+.+[\.]+..+/
   validates_uniqueness_of :email
   validates_numericality_of :age, :greater_than_or_equal_to => 5
-  validates_format_of :phone, :with => /\d+/
+  validates_format_of :phone, :with => /^[()0-9\-\+\sx]+/
   validates_length_of :phone, :minimum => 10
-                  
+
   def name
     self.first_name + " " + self.last_name
   end
