@@ -9,4 +9,4 @@ class CreateStudentsTeachers < ActiveRecord::Migration
       t.integer :teacher_id
     end
   end
-end
+end 

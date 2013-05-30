@@ -11,9 +11,9 @@ class Student < ActiveRecord::Base
   has_many :teachers, :foreign_key => :student_id
   has_many :student_teachers, :through => :teachers
 
-  def name
-    self.first_name + " " + self.last_name
-  end
+  # def name
+  #   self.first_name + " " + self.last_name
+  # end
 
   def age
     @age = Date.today.year - self.birthday.year - ((Date.today.month > self.birthday.month || (Date.today.month == self.birthday.month && Date.today.day >= self.birthday.day)) ? 0 : 1 )

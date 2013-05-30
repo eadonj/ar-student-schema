@@ -4,6 +4,7 @@ require_relative 'db/config'
 require_relative 'lib/students_importer'
 require_relative 'lib/teachers_importer'
 require_relative 'app/models/student_teachers'
+require_relative 'lib/concat'
 
 task :console do
   exec "irb -r ."
@@ -33,6 +34,11 @@ task "db:populate" do
   StudentsImporter.import
   TeachersImporter.import
   StudentTeachers.balance!
+end
+
+desc "concat first_name and last_name for students"
+task "db:concat_names" do
+  StudentsConcat.update
 end
 
 desc 'Retrieves the current schema version number'

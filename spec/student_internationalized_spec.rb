@@ -8,7 +8,7 @@ describe Student, "internationalized" do
     student = Student.all.first
     student.name = "John Doe"
     student.save!
-    student = Student.find(student.id)
+
     student.name.should == "John Doe"
   end
 
