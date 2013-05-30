@@ -3,7 +3,7 @@ require 'rspec/core/rake_task'
 require_relative 'db/config'
 require_relative 'lib/students_importer'
 require_relative 'lib/teachers_importer'
-require_relative 'lib/distribute_students'
+require_relative 'app/models/student_teachers'
 
 task :console do
   exec "irb -r ."
@@ -32,7 +32,7 @@ desc "populate the test database with sample data"
 task "db:populate" do
   StudentsImporter.import
   TeachersImporter.import
-  DistributeStudents.run
+  StudentTeachers.balance!
 end
 
 desc 'Retrieves the current schema version number'

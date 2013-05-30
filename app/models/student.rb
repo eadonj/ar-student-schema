@@ -8,6 +8,9 @@ class Student < ActiveRecord::Base
   validates_format_of :phone, :with => /^[()0-9\-\+\sx]+/
   validates_length_of :phone, :minimum => 10
 
+  has_many :teachers, :foreign_key => :student_id
+  has_many :student_teachers, :through => :teachers
+
   def name
     self.first_name + " " + self.last_name
   end
